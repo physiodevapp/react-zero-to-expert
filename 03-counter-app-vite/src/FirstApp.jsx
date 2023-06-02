@@ -1,17 +1,9 @@
-// import { Fragment } from 'react'
 
-// const getMessage = (message) => {
-//   return JSON.stringify(message)
-// }
-
-// const newMessage = {
-//   text: 'Hola mundo',
-//   author: 'Physiodevapp'
-// }
+import PropTypes from 'prop-types';
 
 export const FirstApp = ( {title, subtitle} ) => {
 
-  // console.log(props)
+
 
   return (
     <>
@@ -21,4 +13,9 @@ export const FirstApp = ( {title, subtitle} ) => {
       <p>{subtitle}</p>
     </>
   )
+}
+
+FirstApp.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.number.isRequired
 }
