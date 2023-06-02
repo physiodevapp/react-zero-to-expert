@@ -9,15 +9,16 @@
 //   author: 'Physiodevapp'
 // }
 
-export const FirstApp = () => {
+export const FirstApp = ( {title, subtitle} ) => {
 
+  // console.log(props)
 
   return (
     <>
       {/* <code> {JSON.stringify( newMessage)} </code> */}
       {/* <h1>{getMessage(newMessage)}</h1> */}
-      <h1>Physiodevapp</h1>
-      <p>I am a subtitle</p>
+      <h1>{title}</h1>
+      <p>{subtitle}</p>
     </>
   )
 }
