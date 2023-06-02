@@ -1,10 +1,23 @@
 // import { Fragment } from 'react'
 
+// const getMessage = (message) => {
+//   return JSON.stringify(message)
+// }
+
+// const newMessage = {
+//   text: 'Hola mundo',
+//   author: 'Physiodevapp'
+// }
+
 export const FirstApp = () => {
+
+
   return (
     <>
-      <h1>First App</h1>
-      <p>Soy un subtitulo</p>
+      {/* <code> {JSON.stringify( newMessage)} </code> */}
+      {/* <h1>{getMessage(newMessage)}</h1> */}
+      <h1>Physiodevapp</h1>
+      <p>I'm a subtitle</p>
     </>
   )
 }
