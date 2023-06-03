@@ -19,3 +19,9 @@ FirstApp.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.number.isRequired
 }
+
+FirstApp.defaultProps = {
+  title: 'ups!',
+  subtitle: 123,
+  name: 'Physiodevapp'
+}
