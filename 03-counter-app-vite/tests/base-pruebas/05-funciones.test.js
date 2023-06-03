@@ -19,7 +19,7 @@ describe('Pruebas en 05-funciones', () => {
     const name = 'Fernando';
 
     const user = getUsuarioActivo(name);
-    
+
     expect(user).toStrictEqual({
       uid: 'ABC567',
       username: 'Fernando'
