@@ -3,19 +3,37 @@ import PropTypes from 'prop-types';
 
 function CounterApp({ value }) {
 
+  console.log('render');
+
   const [count, setCount] = useState(value)
 
-  const handleClick = () => {
+  const handleCounter = (key) => {
     // setCount(count + 1)
-    setCount((prevCount) => prevCount + 1)
+    switch (key) {
+      case 1:
+        setCount((prevCount) => prevCount + 1);
+        break;
+      case -1:
+        setCount((prevCount) => prevCount - 1);
+      break;
+      default:
+        setCount(value);
+        break;
+    }
   }
 
   return (
     <>
       <h1>CounterApps</h1>
       <h2> {count} </h2>
-      <button onClick={handleClick}>
+      <button onClick={() => handleCounter(1)}>
         +1
+      </button>
+      <button onClick={() => handleCounter(-1)}>
+        -1
+      </button>
+      <button onClick={() => handleCounter()}>
+        Reset
       </button>
     </>
   )
