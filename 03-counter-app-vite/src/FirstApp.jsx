@@ -1,10 +1,6 @@
+import PropTypes from "prop-types";
 
-import PropTypes from 'prop-types';
-
-export const FirstApp = ( {title, subtitle} ) => {
-
-
-
+export const FirstApp = ({ title, subtitle }) => {
   return (
     <>
       {/* <code> {JSON.stringify( newMessage)} </code> */}
@@ -12,16 +8,16 @@ export const FirstApp = ( {title, subtitle} ) => {
       <h1>{title}</h1>
       <p>{subtitle}</p>
     </>
-  )
-}
+  );
+};
 
 FirstApp.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.number.isRequired
-}
+  subtitle: PropTypes.number.isRequired,
+};
 
 FirstApp.defaultProps = {
-  title: 'ups!',
+  title: "ups!",
   subtitle: 123,
-  name: 'Physiodevapp'
-}
+  name: "Physiodevapp",
+};
