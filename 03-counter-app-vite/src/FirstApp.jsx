@@ -17,7 +17,7 @@ FirstApp.propTypes = {
 };
 
 FirstApp.defaultProps = {
-  title: "ups!",
+  // title: "ups!",
   subtitle: 123,
   name: "Physiodevapp",
 };
