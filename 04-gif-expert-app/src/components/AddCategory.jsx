@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function AddCategory() {
+function AddCategory({ onAddCategory: setCategories }) {
   const [inputValue, setInputValue] = useState("One Punch");
 
   const handleInputChange = (event) => {
@@ -9,8 +9,15 @@ function AddCategory() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(inputValue)
-  }
+    if (inputValue.trim().length <= 1) {
+      return;
+    } else {
+      setCategories((prevCategories) => {
+        return [inputValue, ...prevCategories];
+      });
+      setInputValue('')
+    }
+  };
 
   return (
     <>

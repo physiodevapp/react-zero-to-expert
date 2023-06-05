@@ -16,11 +16,9 @@ function GifExpertApp() {
       <h1>GifExpertApp</h1>
 
       {/* input */}
-      <AddCategory/>
+      <AddCategory onAddCategory={ setCategories }/>
 
       {/* item-list */}
-
-      <button onClick={handleAddCategory}>Add category</button>
 
       <ol>
         {categories.map((category) => (
