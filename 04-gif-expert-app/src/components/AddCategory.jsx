@@ -13,6 +13,7 @@ function AddCategory({ onAddCategory }) {
       return;
     } else {
       onAddCategory(inputValue.trim())
+      setInputValue('')
     }
   };
 
