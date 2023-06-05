@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function CounterApp({ value }) {
 
-  console.log('render');
+  // console.log('render');
 
   const [count, setCount] = useState(value)
 
@@ -24,8 +24,8 @@ function CounterApp({ value }) {
 
   return (
     <>
-      <h1>CounterApps</h1>
-      <h2> {count} </h2>
+      <h1>Counter App</h1>
+      <h2>{count}</h2>
       <button onClick={() => handleCounter(1)}>
         +1
       </button>
