@@ -5,9 +5,13 @@ function GifExpertApp() {
   const [categories, setCategories] = useState(["One Punch", "Dragon Ball"]);
 
   const handleAddCategory = (newCategory) => {
-    setCategories((prevCategories) => {
-      return [newCategory, ...prevCategories]
-    })
+
+    if (!categories.includes(newCategory)) {
+      setCategories((prevCategories) => {
+        return [newCategory, ...prevCategories]
+      })
+    }
+
   };
 
   return (
