@@ -32,7 +32,7 @@ function CounterApp({ value }) {
       <button onClick={() => handleCounter(-1)}>
         -1
       </button>
-      <button onClick={() => handleCounter()}>
+      <button aria-label='btn-reset' onClick={() => handleCounter()}>
         Reset
       </button>
     </>
