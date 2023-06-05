@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function AddCategory({ onAddCategory }) {
+export const AddCategory = ({ onAddCategory }) => {
   const [inputValue, setInputValue] = useState("One Punch");
 
   const handleInputChange = (event) => {
@@ -30,5 +30,3 @@ function AddCategory({ onAddCategory }) {
     </>
   );
 }
-
-export default AddCategory;

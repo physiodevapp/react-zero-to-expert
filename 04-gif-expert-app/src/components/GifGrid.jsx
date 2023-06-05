@@ -6,11 +6,10 @@ function GifGrid({ category }) {
 
   const {gifs, isLoading} = useFetchGifs(category);
 
-  console.log(isLoading)
-
   return (
     <>
       <h3>{category}</h3>
+      {isLoading && <h2>Loading...</h2>}
       <div className="card-grid">
         {
           gifs.map((gif) => (
@@ -22,4 +21,6 @@ function GifGrid({ category }) {
   );
 }
 
-export default GifGrid;
+export {
+  GifGrid
+};
