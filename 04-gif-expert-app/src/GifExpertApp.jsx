@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 
 function GifExpertApp() {
-  const [categories, setCategories] = useState(['One Punch', 'Dragon Ball']);
+  const [categories, setCategories] = useState(["One Punch", "Dragon Ball"]);
 
-  console.log(categories)
+  const handleAddCategory = () => {
+    setCategories((prevCategories) => {
+      return ['Valorant', ...prevCategories]
+    })
+  };
 
   return (
     <>
@@ -13,6 +17,9 @@ function GifExpertApp() {
       {/* input */}
 
       {/* item-list */}
+
+      <button onClick={handleAddCategory}>Add category</button>
+
       <ol>
         {categories.map((category) => (
           <li key={category}>{category}</li>
