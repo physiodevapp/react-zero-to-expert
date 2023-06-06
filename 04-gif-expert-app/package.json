@@ -2,7 +2,7 @@
   "name": "gif-expert-app",
   "private": true,
   "version": "0.0.0",
-  "homepage":"https://physiodevapp.github.io/gif-expert-app",
+  "homepage":"https://physiodevapp.github.io/react-zero-to-expert",
   "type": "module",
   "scripts": {
     "dev": "vite",
