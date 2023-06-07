@@ -3,9 +3,9 @@ import { useForm } from "../hooks/useForm";
 
 function SimpleFormWithCustomHook() {
   
-  const { form, username, email, password, handleChange } = useForm({
-    username: "strider",
-    email: "strider@email.com",
+  const { form, username, email, password, onChange, onReset } = useForm({
+    username: "",
+    email: "",
     password: "",
   })
 
@@ -40,7 +40,7 @@ function SimpleFormWithCustomHook() {
         placeholder="Username"
         name="username"
         value={username}
-        onChange={handleChange}
+        onChange={onChange}
       />
 
       <input
@@ -49,7 +49,7 @@ function SimpleFormWithCustomHook() {
         placeholder="email@domain"
         name="email"
         value={email}
-        onChange={handleChange}
+        onChange={onChange}
       />
 
       <input
@@ -58,8 +58,10 @@ function SimpleFormWithCustomHook() {
         placeholder="Password"
         name="password"
         value={password}
-        onChange={handleChange}
+        onChange={onChange}
       />
+
+      <button onClick={onReset} className="btn btn-primary mt-2">Reset</button>
 
     </>
   );

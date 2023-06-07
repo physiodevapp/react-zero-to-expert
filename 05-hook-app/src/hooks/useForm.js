@@ -12,9 +12,14 @@ export const useForm = (initialFields = {}) => {
     });
   };
 
+  const handleReset = () => {
+    setForm(initialFields)
+  }
+
   return {
     ...form,
     form,
-    handleChange
+    onChange: handleChange,
+    onReset: handleReset
   };
 };
