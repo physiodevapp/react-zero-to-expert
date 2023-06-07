@@ -17,12 +17,21 @@ function SimpleForm() {
   }
 
   useEffect(() => {
-    console.log('useEffect')
+    console.log('form changed!')
   
     return () => {
       
     }
-  }, [])
+  }, [form])
+  
+
+  useEffect(() => {
+    console.log('email changed!')
+  
+    return () => {
+      
+    }
+  }, [email])
   
 
   return (
