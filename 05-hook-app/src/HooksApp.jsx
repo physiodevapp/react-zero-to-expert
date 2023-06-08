@@ -1,10 +1,10 @@
 import React from "react";
-import { MemoHook } from "./06-memos/MemoHook";
+import { CallbackHook } from "./07-useCallback/CallbackHook";
 
 function HooksApp() {
   return (
     <>
-      <MemoHook/>
+      <CallbackHook/>
     </>
   );
 }
