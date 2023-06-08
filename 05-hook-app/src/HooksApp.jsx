@@ -1,10 +1,10 @@
 import React from "react";
-import { CallbackHook } from "./07-useCallback/CallbackHook";
+import { Padre } from "./08-tarea-memo/07-tarea-memo/Padre";
 
 function HooksApp() {
   return (
     <>
-      <CallbackHook/>
+      <Padre/>
     </>
   );
 }
