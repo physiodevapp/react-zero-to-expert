@@ -1,10 +1,10 @@
 import React from "react";
-import FocusScreen from "./04-useRef/FocusScreen";
+import Layout from "./05-useLayoutEffect/Layout";
 
 function HooksApp() {
   return (
     <>
-      <FocusScreen/>
+      <Layout/>
     </>
   );
 }
