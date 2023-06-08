@@ -1,11 +1,10 @@
 import React from "react";
-import Layout from "./05-useLayoutEffect/Layout";
-import Memorize from "./06-memos/Memorize";
+import { MemoHook } from "./06-memos/MemoHook";
 
 function HooksApp() {
   return (
     <>
-      <Memorize/>
+      <MemoHook/>
     </>
   );
 }
