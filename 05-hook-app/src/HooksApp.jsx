@@ -1,10 +1,10 @@
 import React from "react";
-import SimpleFormWithCustomHook from "./02-useEffect/SimpleFormWithCustomHook";
+import MultipleCustomHooks from "./03-examples/MultipleCustomHooks";
 
 function HooksApp() {
   return (
     <>
-      <SimpleFormWithCustomHook/>
+      <MultipleCustomHooks/>
     </>
   );
 }
