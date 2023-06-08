@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 
 function MultipleCustomHooks() {
+  const [quoteCounter, setQuoteCounter] = useState(1)
   const { data, isLoading, errors } = useFetch(
-    `https://api.breakingbadquotes.xyz/v1/quotes`
+    `https://api.breakingbadquotes.xyz/v1/quotes/${quoteCounter}`
   );
 
   const { author, quote } = !!data && data[0];
 
-  // console.log({ data, isLoading, errors })
+  const handleClick = () => {
+    setQuoteCounter(() => quoteCounter + 1)
+  }
 
   return (
     <>
@@ -27,7 +30,11 @@ function MultipleCustomHooks() {
         ) 
       }
 
-      <button className="btn btn-primary">
+      <button 
+        onClick={handleClick} 
+        disabled={isLoading}
+        className="btn btn-primary"
+      >
         Next
       </button>
     </>
