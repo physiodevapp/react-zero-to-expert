@@ -1,10 +1,11 @@
 import React from "react";
-import { Padre } from "./08-tarea-memo/07-tarea-memo/Padre";
+// import './09-useReducer/intro-reducer'
+import { TodoApp } from "./09-useReducer/TodoApp";
 
 function HooksApp() {
   return (
     <>
-      <Padre/>
+      <TodoApp/>
     </>
   );
 }
