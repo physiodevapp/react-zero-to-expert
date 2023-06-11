@@ -1,12 +1,12 @@
 import React from "react";
-// import './09-useReducer/intro-reducer'
-import { TodoApp } from "./09-useReducer/TodoApp";
+import { MainApp } from './10-useContext/MainApp'
+import { BrowserRouter as Router} from 'react-router-dom'
 
 function HooksApp() {
   return (
-    <>
-      <TodoApp/>
-    </>
+    <Router>
+      <MainApp/>
+    </Router>
   );
 }
 
