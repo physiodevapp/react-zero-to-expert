@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import 'whatwg-fetch' // for testing purposes
+
 export const useFetch = (url) => {
   const [state, setState] = useState({
     data: null,

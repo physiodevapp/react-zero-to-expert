@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
-function Quote({ quote, author }) {
+export const Quote = ({ quote, author }) => {
   const pRef = useRef();
   const [boxSize, setBoxSize] = useState({ width: 0, height: 0 });
 
@@ -21,7 +21,7 @@ function Quote({ quote, author }) {
 
       <div>{JSON.stringify(boxSize)}</div>
     </>
-  );
+  )
 }
 
 Quote.propTypes = {
@@ -29,4 +29,4 @@ Quote.propTypes = {
   author: PropTypes.string.isRequired,
 };
 
-export { Quote };
+// export { Quote };

@@ -1,9 +1,7 @@
-import React, { useState } from "react";
 import { useFetch, useCounter } from "../hooks";
-import LoadingQuote from "./LoadingQuote";
-import Quote from "./Quote";
+import { Quote, LoadingQuote } from './'
 
-function MultipleCustomHooks() {
+export const MultipleCustomHooks = () => {
   const { counter, increment } = useCounter(1);
   const { data, isLoading, errors } = useFetch(
     `https://api.breakingbadquotes.xyz/v1/quotes/${counter}`
@@ -27,7 +25,5 @@ function MultipleCustomHooks() {
         Next
       </button>
     </>
-  );
+  )
 }
-
-export default MultipleCustomHooks;
