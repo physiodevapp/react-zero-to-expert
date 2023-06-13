@@ -16,13 +16,13 @@ export const useTodo = () => {
 
   }, [todos]);
 
-  const todosCounter = () => {
-    return todos.length
-  } 
+  // const todosCounter = () => {
+  //   return todos.length
+  // } 
 
-  const todosPendingCounter = () => {
-    return todos.filter((todo) => todo.done).length
-  }
+  // const todosPendingCounter = () => {
+  //   return todos.filter((todo) => todo.done).length
+  // }
 
   const handleNewTodo = (todo)=> {
     const addAction = {
