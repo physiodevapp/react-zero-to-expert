@@ -1,6 +1,6 @@
 import React from "react";
 
-function TodoItem({ todo, onRemoveTodo, onToggleTodo }) {
+export const TodoItem = ({ todo, onRemoveTodo, onToggleTodo }) =>{
 
   const handleToggleClick = () => {
     onToggleTodo(todo.id)
@@ -12,7 +12,7 @@ function TodoItem({ todo, onRemoveTodo, onToggleTodo }) {
 
   return (
     <li className="list-group-item d-flex justify-content-between">
-      <span onClick={handleToggleClick} className={`align-self-center ${todo.done ? 'text-decoration-line-through' : ''}`}>{todo.description}</span>
+      <span aria-label="span" onClick={handleToggleClick} className={`align-self-center ${todo.done ? 'text-decoration-line-through' : ''}`}>{todo.description}</span>
       <button onClick={handleButtonClick} className="btn btn-danger">
         Delete
       </button>
@@ -20,4 +20,4 @@ function TodoItem({ todo, onRemoveTodo, onToggleTodo }) {
   );
 }
 
-export { TodoItem };
+// export { TodoItem };
