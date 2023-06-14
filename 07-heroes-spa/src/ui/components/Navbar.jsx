@@ -3,10 +3,13 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../heroes/context/AuthContext";
 
 export const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log({user})
+
   const handleLogout = () => {
+
+    logout();
+
     navigate("/login", {
       replace: true,
     });
