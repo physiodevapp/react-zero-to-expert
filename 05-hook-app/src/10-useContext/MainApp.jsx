@@ -6,7 +6,7 @@ import { AboutPage } from "./AboutPage";
 import { Navbar } from "./Navbar";
 import { UserProvider } from "./context/UserProvider";
 
-function MainApp() {
+export const MainApp = () => {
   return (
     <UserProvider>
       <h1>MainApp</h1>
@@ -23,4 +23,4 @@ function MainApp() {
   );
 }
 
-export { MainApp };
+// export { MainApp };
