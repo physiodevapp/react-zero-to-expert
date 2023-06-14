@@ -5,7 +5,7 @@ import { AuthContext } from "../../heroes/context/AuthContext";
 export const Navbar = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  console.log({user})
   const handleLogout = () => {
     navigate("/login", {
       replace: true,
