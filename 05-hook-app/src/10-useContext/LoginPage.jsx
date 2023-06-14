@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "./context/UserContext";
 
-function LoginPage() {
+export const LoginPage = () => {
   const { user, setUser } = useContext(UserContext);
   // console.log(user);
 
@@ -10,7 +10,7 @@ function LoginPage() {
       <h1>LoginPage</h1>
       <hr />
 
-      <pre>{JSON.stringify(user, null, 3)}</pre>
+      <pre aria-label="pre">{JSON.stringify(user, null, 3)}</pre>
 
       <button 
         onClick={() => {setUser({id: 123, name: 'physiodevapp', email: 'physiodevapp@example.org'})}}
@@ -21,4 +21,4 @@ function LoginPage() {
   );
 }
 
-export { LoginPage };
+// export { LoginPage };

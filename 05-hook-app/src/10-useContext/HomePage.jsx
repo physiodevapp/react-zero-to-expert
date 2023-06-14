@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "./context/UserContext";
 
-function HomePage() {
+export const HomePage = () => {
 
   const {user} = useContext(UserContext)
 
@@ -10,7 +10,7 @@ function HomePage() {
       <h1>HomePage {user?.name}</h1>
       <hr/>
 
-      <pre>
+      <pre aria-label="pre">
         {
           JSON.stringify(user, null, 3)
         }
@@ -19,4 +19,4 @@ function HomePage() {
   );
 }
 
-export { HomePage };
+// export { HomePage };
