@@ -23,6 +23,7 @@ export const LoginPage = () => {
       <hr />
 
       <button 
+        aria-label="loginBtn"
         onClick={handleLogin} 
         className="btn btn-primary"
       >
