@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 
 export const PublicRouter = ({ children }) => {
   const { logged } = useContext(AuthContext);
-  const lastPath = localStorage.getItem('lastPath') || '/';
+  const lastPath = localStorage.getItem('lastPath') || '/marvel';
 
   return (
     (!logged) 

@@ -3,7 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { LoginPage } from "../auth/";
 import { HeroesRoutes } from "../heroes/routes/HeroesRoutes";
 import { PrivateRouter } from "./PrivateRouter";
-import { PublicRouter } from "./Publicrouter";
+import { PublicRouter } from "./PublicRouter";
 
 export const AppRouter = () => {
   return (

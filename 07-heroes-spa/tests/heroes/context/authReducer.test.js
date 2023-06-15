@@ -1,7 +1,4 @@
-import { render } from "react-dom";
 import { authReducer } from "../../../src/heroes/context/authReducer";
-import { LoginPage } from "../../../src/auth/pages/LoginPage";
-import { fireEvent, screen } from "@testing-library/react";
 import { types } from "../../../src/heroes/types/types";
 
 describe("testing authReducer function", () => {
