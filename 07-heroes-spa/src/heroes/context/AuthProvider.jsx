@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { AuthContext } from './AuthContext'
 import { authReducer } from './authReducer'
 import { types } from '../types/types'
@@ -13,8 +13,7 @@ const initAuthState = () => {
 }
 
 export const AuthProvider = ({children}) => {
-  
-  const [authState, authDispatch] = useReducer(authReducer, {}, initAuthState)
+  const [authState, authDispatch] = useReducer(authReducer, {}, initAuthState) 
   
   const handleLogin = (name = '') => {
     const user = {

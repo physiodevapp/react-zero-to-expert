@@ -3,16 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../heroes/context/AuthContext";
 
 export const LoginPage = () => {
-
   const { login } = useContext(AuthContext)
   const navigate = useNavigate()
 
   const handleLogin = () => {
 
+    const lastPath = localStorage.getItem('lastPath')
+    
     login('physiodevapp')
 
-    navigate('/', {
-      replace: true
+    navigate(lastPath, {
+      replace: false
     })
   }
 
