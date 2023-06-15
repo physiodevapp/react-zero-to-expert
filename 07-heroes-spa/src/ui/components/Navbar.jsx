@@ -18,7 +18,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
       <Link className="navbar-brand" to="/">
-        Asociaciones
+        Companies
       </Link>
 
       <div className="navbar-collapse">
@@ -56,7 +56,7 @@ export const Navbar = () => {
         <ul className="navbar-nav ml-auto">
           <span className="nav-item nav-link text-info">{user?.name}</span>
 
-          <button onClick={handleLogout} className="nav-item nav-link btn">
+          <button aria-label="logout" onClick={handleLogout} className="nav-item nav-link btn">
             Logout
           </button>
         </ul>
