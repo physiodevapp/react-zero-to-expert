@@ -1,17 +1,15 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { MemoryRouter, useNavigate } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { SearchPage } from "../../../src/heroes/pages/SearchPage";
 
-const mockedUseNavigate = jest.fn()
-
-jest.mock("react-router-dom", () =>({
+const mockedUseNavigate = jest.fn();
+jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
-  useNavigate: () => mockedUseNavigate
-}))
+  useNavigate: () => mockedUseNavigate,
+}));
 
 describe("testing <SearchPage/>", () => {
-
-  beforeAll(() => jest.clearAllMocks())
+  beforeAll(() => jest.clearAllMocks());
 
   test("should show component correctly", () => {
     const { container } = render(
@@ -61,17 +59,21 @@ describe("testing <SearchPage/>", () => {
   });
 
   test("should call navigate on input change", () => {
+
     render(
       <MemoryRouter initialEntries={["/search"]}>
         <SearchPage />
       </MemoryRouter>
     );
     const input = screen.getByRole("textbox");
-    const form = screen.getByRole('form')
+    const form = screen.getByRole("form");
 
-    fireEvent.change(input, { target: { name: 'searchText', value: "batman123" } } );
-    fireEvent.submit(form)
+    fireEvent.change(input, {
+      target: { name: "searchText", value: "batman123" },
+    });
+    fireEvent.submit(form);
 
-    expect(mockedUseNavigate).toHaveBeenCalledWith("?q=batman123")
+    expect(mockedUseNavigate).toHaveBeenCalledWith("?q=batman123");
+    
   });
 });
