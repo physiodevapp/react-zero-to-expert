@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link as RouterLink } from 'react-router-dom'
 import { Google } from "@mui/icons-material";
 import { Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { AuthLayout } from "../layout/AuthLayout";
 import { useForm } from "../../hooks";
 import { checkingAuthentication, startGoogleSignIn } from "../../store/auth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
+
+const formData = {
+  email: 'physiodevapp@example.org',
+  password: '123456,'
+}
 
 export const LoginPage = () => {
 
+  const { status } = useSelector(state => state.auth)
+
   const dispatch = useDispatch()
 
-  const {email, password, onInputChange} = useForm({
-    email: 'physiodevapp@example.org',
-    password: '123456,'
-  })
+  const {email, password, onInputChange} = useForm(formData)
+
+  const isAuthenticating = useMemo(() => status === 'checking', [status])
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -33,7 +39,6 @@ export const LoginPage = () => {
   return (
     <>
       <AuthLayout title={'Login'}>
-        <p>{import.meta.env.VITE_API_KEY}</p>
       <form onSubmit={onSubmit}>
             <Grid container>
               <Grid item xs={12}>
@@ -62,12 +67,12 @@ export const LoginPage = () => {
 
               <Grid container spacing={2} sx={{ mt: 1, mb: 2 }}>
                 <Grid item xs={12} sm={6}>
-                  <Button type="submit" variant="contained" fullWidth>
+                  <Button disabled={isAuthenticating} type="submit" variant="contained" fullWidth>
                     Login
                   </Button>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <Button onClick={onGoogleSignIn} variant="contained" fullWidth>
+                  <Button disabled={isAuthenticating} onClick={onGoogleSignIn} variant="contained" fullWidth>
                     <Google />
                     <Typography sx={{ ml: 1 }}>Google</Typography>
                   </Button>
