@@ -2,7 +2,7 @@ import { loginWithEmailPassword, logoutFirebase, registerUserWithEmailPassword, 
 import { clearNotesLogout } from "../journal"
 import { checkingCredentials, login, logout } from "./authSlice"
 
-export const checkingAuthentication = (email, password) => {
+export const checkingAuthentication = () => {
   return async (dispatch) => {
     dispatch(checkingCredentials())
   }
@@ -14,6 +14,7 @@ export const startGoogleSignIn = () => {
 
     const result = await signInWithGoogle();
     // console.log({result})
+
     if (result.ok) {
       delete result.ok
       dispatch(login(result))
@@ -42,7 +43,7 @@ export const startCreatingWithEmailPassword = ({email, displayName, password}) =
   }
 }
 
-export const startLodingWithEmailPassword = ({email, password}) => {
+export const startLoginWithEmailPassword = ({email, password}) => {
   return async(dispatch) => {
     dispatch(checkingCredentials())
 

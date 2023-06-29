@@ -17,8 +17,6 @@ export const loadNotes = async(uid='') => {
     )
   })
 
-  console.log({notes})
-
   return notes
 
 }
