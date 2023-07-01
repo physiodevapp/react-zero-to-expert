@@ -32,11 +32,7 @@ const createUser = async (req, res = response) => {
     console.log(error);
     res.status(500).json({
       ok: false,
-<<<<<<< HEAD
       msg: "Please, contact Admin",
-=======
-      msg: "Please contact Admin",
->>>>>>> e634fcf328acf21c4d98025a81a6e4c7f48bf3df
     });
   }
 };
@@ -75,11 +71,7 @@ const userLogin = async (req, res = response) => {
     console.log(error);
     res.status(500).json({
       ok: false,
-<<<<<<< HEAD
       msg: "Please, contact Admin ",
-=======
-      msg: "Please contact Admin ",
->>>>>>> e634fcf328acf21c4d98025a81a6e4c7f48bf3df
     });
   }
 };
