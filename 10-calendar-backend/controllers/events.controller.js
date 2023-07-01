@@ -13,6 +13,10 @@ const getEvents = async (req = request, res = response) => {
 };
 
 const createEvent = async (req = request, res = response) => {
+<<<<<<< HEAD
+=======
+  // console.log(req.body)
+>>>>>>> e634fcf328acf21c4d98025a81a6e4c7f48bf3df
 
   try {
     const event = new Event(req.body);
@@ -96,6 +100,10 @@ const deleteEvent = async (req = request, res = response) => {
     }
 
     const deletedEvent = await Event.findByIdAndDelete(eventId)
+<<<<<<< HEAD
+=======
+    // console.log(deletedEvent)
+>>>>>>> e634fcf328acf21c4d98025a81a6e4c7f48bf3df
 
     res.status(200).json({
       ok: true,
