@@ -36,7 +36,7 @@ export const useCalendarStore = () => {
         }))
         
       } catch (error) {
-        console.log(error)
+        // console.log(error)
         Swal.fire('Error while trying to save', error.response.data.msg, 'error')
       }
 
@@ -58,7 +58,7 @@ export const useCalendarStore = () => {
       await calendarApi.delete(`/events/${activeEvent.id}`)
       dispatch(onDeleteEvent())
     } catch (error) {
-      console.log(error)
+      // console.log(error)
       Swal.fire('An error occurred while trying to delete event', error.response.data.msg, 'error')
     }
 
@@ -73,8 +73,8 @@ export const useCalendarStore = () => {
       dispatch(onLoadEvents(events))
 
     } catch (error) {
-      console.log('An error occurred while trying to update event')
-      console.log(error)
+      // console.log('An error occurred while trying to update event')
+      // console.log(error)
       Swal.fire('An error occurred while trying to update event', error.response.data.msg, 'error')
     }
 

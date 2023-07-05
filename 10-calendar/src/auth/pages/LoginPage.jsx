@@ -25,14 +25,14 @@ export const LoginPage = () => {
 
   const loginSubmit = (event) => {
     event.preventDefault()
-    console.log({loginEmail, loginPassword})
+    // console.log({loginEmail, loginPassword})
 
     startLogin({email: loginEmail, password: loginPassword})
   }
 
   const registerSubmit = (event) => {
     event.preventDefault()
-    console.log({name: registerName, email: registerEmail, password: registerPassword, password2: registerPassword2})
+    // console.log({name: registerName, email: registerEmail, password: registerPassword, password2: registerPassword2})
 
     startRegister({name: registerName, email: registerEmail, password: registerPassword})
   }
