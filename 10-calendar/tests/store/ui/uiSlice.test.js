@@ -1,5 +1,5 @@
 
-import {uiSlice} from '../../../src/store/ui/uiSlice'
+import {onCloseDateModal, onOpenDateModal, uiSlice} from '../../../src/store/ui/uiSlice'
 
 describe('Pruebas en uiSlice', () => {
 	test('debe regresar el estado por defecto', () => {

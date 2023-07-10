@@ -10,7 +10,6 @@ export const useAuthStore = () => {
   const dispatch = useDispatch()
 
   const startLogin = async({email, password})=> {
-  // console.log('startLogin ', {email, password})
 
     try {
       
@@ -31,7 +30,7 @@ export const useAuthStore = () => {
   }
 
   const startRegister = async({name, email, password}) => {
-
+    console.log('startRegister')
     try {
 
       const { data } = await calendarApi.post('/auth/new', {name, email, password})
@@ -41,9 +40,8 @@ export const useAuthStore = () => {
       dispatch(onLogin({name: data.name, uid: data.uid}))
 
     } catch (error) {
-      // console.log(error)
-      
-      dispatch(onLogout(error.response.data.msg))
+     
+      dispatch(onLogout(error.response.data.mgs))
       setTimeout(() => {
         dispatch(onClearingErrorMessage())
       }, 10);

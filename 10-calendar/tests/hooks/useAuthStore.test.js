@@ -2,10 +2,10 @@
 import { act, renderHook, waitFor } from '@testing-library/react'
 import { useAuthStore } from '../../src/hooks/useAuthStore'
 import { Provider } from 'react-redux'
-import { store, authSlice } from '../../src/store/'
+import { authSlice } from '../../src/store/'
 import { configureStore } from "@reduxjs/toolkit";
 import { initialState, notAuthenticatedState } from '../fixtures/authStates'
-import { testUserCredentials } from '../fixtures/testUSer'
+import { testUserCredentials } from '../fixtures/testUser'
 import { calendarApi } from '../../src/api'
 
 const getMockStore = (initialState) => {
@@ -37,7 +37,7 @@ describe('Probar useAuthStore', () => {
 			errorMessage: undefined,
 			checkAuthToken: expect.any(Function),
 			startLogin: expect.any(Function),
-			StartLogout: expect.any(Function),
+			startLogout: expect.any(Function),
 			startRegister: expect.any(Function),
 		})
 	});
@@ -85,7 +85,7 @@ describe('Probar useAuthStore', () => {
 		expect(localStorage.getItem('token')).toBe(null)
 
 		expect({errorMessage, status, user}).toEqual({
-			status: 'authenticated',
+			status: 'not-authenticated',
 			user: {},
 			errorMessage: expect.any(String),
 		})
@@ -110,7 +110,7 @@ describe('Probar useAuthStore', () => {
 		const spy = jest.spyOn(calendarApi, 'post').mockReturnValue({
 			data: {
 				ok: true,
-				ui: 'Some Id',
+				uid: 'Some Id',
 				name: 'user sample',
 				token: 'Some token,'
 			}

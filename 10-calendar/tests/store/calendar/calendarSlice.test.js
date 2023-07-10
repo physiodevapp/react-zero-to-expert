@@ -1,6 +1,7 @@
 
-import { calendarSlice, onSetActiveEvent, onUpdateEvent, onDeleteEvent, onLoadEvents, onLogoutCalendar, events } from '../../../src/store/calendar/calendarSlice'
-import { calendarWithEventsState, calendarWithActiveEventState, initialState } from '../../fixtures/calendarStates'
+import { addHours } from 'date-fns'
+import { calendarSlice, onSetActiveEvent, onUpdateEvent, onDeleteEvent, onLoadEvents, onLogoutCalendar, onAddNewEvent } from '../../../src/store/calendar/calendarSlice'
+import { calendarWithEventsState, calendarWithActiveEventState, initialState, events } from '../../fixtures/calendarStates'
 
 describe('Pruebas en calendarSlice', () => {
 	test('debe regresar el estado por defecto', () => {
@@ -29,7 +30,7 @@ describe('Pruebas en calendarSlice', () => {
 			notes: "Buy the cake",
 		}
 
-		const state = calendarSlice.reducer(calendarWithEventsState, onAddEvent(newEvent))
+		const state = calendarSlice.reducer(calendarWithEventsState, onAddNewEvent(newEvent))
 
 		expect(state.events).toEqual([...events, newEvent])
 
@@ -38,7 +39,7 @@ describe('Pruebas en calendarSlice', () => {
 	test('onUpdateEvent debe de actualizar el evento', () => {
 
 		const updatedEvent = {
-			id: '3',
+			id: '1',
 			start: new Date('2020-10-21 13:00:00'),
 			end: addHours(new Date('2020-10-21 15:00:00'), 2),
 			title: "Fernando's birthday updated",
@@ -56,13 +57,13 @@ describe('Pruebas en calendarSlice', () => {
 		const state = calendarSlice.reducer(calendarWithActiveEventState, onDeleteEvent())
 
 		expect(state.activeEvent).toBe(null)
-		expect(state.events).not().contain(calendarWithActiveEventState.activeEvent)
+		expect(state.events).not.toContain(calendarWithActiveEventState.activeEvent)
 	})
 
 	test('onLoadEvents debe de establecer los eventos', () => {
 		
 		const state = calendarSlice.reducer(initialState, onLoadEvents(events))
-		expect(stats.isLoadingEvents).toBeFalsy()
+		expect(state.isLoadingEvents).toBeFalsy()
 		expect(state.events).toEqual(events)
 
 		const newState = calendarSlice.reducer(state, onLoadEvents(events))

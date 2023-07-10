@@ -2,7 +2,7 @@
 import { act, renderHook } from '@testing-library/react'
 import { useUiStore } from '../../src/hooks/useUiStore'
 import { Provider } from 'react-redux'
-import { store, uiSlice } from '../../src/store'
+import { uiSlice } from '../../src/store'
 import { configureStore } from "@reduxjs/toolkit";
 
 const getMockStore = (initialState) => {
@@ -10,7 +10,7 @@ const getMockStore = (initialState) => {
 		reducer: {
 			ui: uiSlice.reducer,
 		},
-		preLoadedState: {
+		preloadedState: {
 			ui: {...initialState}
 		}
 	})
@@ -40,7 +40,7 @@ describe('Pruebas de useUiStore' , () => {
 
 		const mockStore = getMockStore({isDateModalOpen: false})
 		const { result } = renderHook(() => useUiStore(), {
-			wrapper: ({children}) => <Provider store={mockStore}>{chidlren}</Provider>
+			wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
 		})
 
 		const { isDateModalOpen, openDateModal } = result.current
@@ -56,38 +56,39 @@ describe('Pruebas de useUiStore' , () => {
 	test('closeDateModal debe de colocar false en isDateModalOpen', () => {
 		const mockStore = getMockStore({isDateModalOpen: true})
 		const { result } = renderHook(() => useUiStore(), {
-			wrapper: ({children}) => <Provider store={mockStore}>{chidlren}</Provider>
+			wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
 		})
 
 		const { closeDateModal } = result.current
 
 		act(() => {
-			openDateModal()
+			closeDateModal()
 		})
 
-		expect(resut.current.isDateModalOpen).toBeFalsy()				
+		expect(result.current.isDateModalOpen).toBeFalsy()				
 	});
 
 	test('toggleDateModal debe cambiar el estado respectivamente', () => {
 		const mockStore = getMockStore({isDateModalOpen: true})
 		const { result } = renderHook(() => useUiStore(), {
-			wrapper: ({children}) => <Provider store={mockStore}>{chidlren}</Provider>
+			wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
 		})
 
 		const { toggleDateModal } = result.current
-		
+	
 		act(() => {
 			toggleDateModal()
 		})
-		expect(resut.current.isDateModalOpen).toBeFalsy()	
+
+		expect(result.current.isDateModalOpen).toBeFalsy()	
 		
-		// TODO: comprobar si es necesario volver a importar la función
-		const { toggleDateModal2 } = result.current
+		// Note #1: Sería necesario volver a importar la función
+		// const { toggleDateModal2 } = result.current
 
 		act(() => {
-			toggleDateModal2()
+			result.current.toggleDateModal() // Note #1
 		})
-		expect(resut.current.isDateModalOpen).toBeTruthy()				
+		expect(result.current.isDateModalOpen).toBeTruthy()				
 
 	});
 })

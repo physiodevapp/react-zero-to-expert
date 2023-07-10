@@ -1,5 +1,5 @@
 
-import { authSlice, onLogin, onLogout, clearErrorMessage } from '../../../src/store/auth/authSlice'
+import { authSlice, onLogin, onLogout, onClearingErrorMessage } from '../../../src/store/auth/authSlice'
 import { initialState, authenticatedState } from '../../fixtures/authStates'
 import { testUserCredencials } from '../../fixtures/testUser'
 
@@ -25,7 +25,7 @@ describe('Pruebas en authSlice', () => {
 	test('debe de realizar el logout', () => {
 		
 		const state = authSlice.reducer(authenticatedState, onLogout())
-		expect( state ).toEqua({
+		expect( state ).toEqual({
 			status: 'not-authenticated',
 			user: {},
 			errorMessage: undefined
@@ -37,7 +37,7 @@ describe('Pruebas en authSlice', () => {
 		
 		const errorMessage = 'Invalid credentials'
 		const state = authSlice.reducer(authenticatedState, onLogout(errorMessage))
-		expect( state ).toEqua({
+		expect( state ).toEqual({
 			status: 'not-authenticated',
 			user: {},
 			errorMessage: errorMessage
@@ -48,7 +48,7 @@ describe('Pruebas en authSlice', () => {
 	test('debe de limpiar el mensaje de error', () => {
 		const errorMessage = 'Invalid credentials'
 		const state = authSlice.reducer(authenticatedState, onLogout(errorMessage))
-		const newState = authSlice.reducer(state, clearErrorMessage())
+		const newState = authSlice.reducer(state, onClearingErrorMessage())
 
 		expect(newState.errorMessage).toBe(undefined)
 	})
