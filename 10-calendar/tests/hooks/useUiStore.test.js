@@ -50,7 +50,45 @@ describe('Pruebas de useUiStore' , () => {
 
 				expect(result.current.isDateModalOpen).toBeTruthy()
 
-			})
+			});
+
+			test('closeDateModal debe de colocar false en isDateModalOpen', () => {
+				const mockStore = getMockStore({isDateModalOpen: true})
+				const { result } = renderHook(() => useUiStore(), {
+					wrapper: ({children}) => <Provider store={mockStore}>{chidlren}</Provider>
+				})
+
+				const { closeDateModal } = result.current
+
+				act(() => {
+					openDateModal()
+				})
+
+				expect(resut.current.isDateModalOpen).toBeFalsy()				
+			});
+
+			test('toggleDateModal debe cambiar el estado respectivamente', () => {
+				const mockStore = getMockStore({isDateModalOpen: true})
+				const { result } = renderHook(() => useUiStore(), {
+					wrapper: ({children}) => <Provider store={mockStore}>{chidlren}</Provider>
+				})
+
+				const { toggleDateModal } = result.current
+				
+				act(() => {
+					toggleDateModal()
+				})
+				expect(resut.current.isDateModalOpen).toBeFalsy()	
+				
+				// TODO: comprobar si es necesario volver a importar la función
+				const { toggleDateModal2 } = result.current
+
+				act(() => {
+					toggleDateModal2()
+				})
+				expect(resut.current.isDateModalOpen).toBeTruthy()				
+
+			});
 
 	})
 })
