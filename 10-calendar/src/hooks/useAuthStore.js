@@ -74,8 +74,7 @@ export const useAuthStore = () => {
     dispatch(onLogout())
     dispatch(onLogoutCalendar())
   }
-
-
+  
 
   return {
     // Properties
