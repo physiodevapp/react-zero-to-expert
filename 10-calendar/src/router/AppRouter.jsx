@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { LoginPage } from '../auth'
 import { CalendarPage } from '../calendar'
@@ -8,15 +8,16 @@ export const AppRouter = () => {
   const { status, checkAuthToken } = useAuthStore()
   // const authStatus = 'not-authenticated'
 
-  if (status === 'checking') {
+  useEffect(() => {
+    checkAuthToken()
+  }, [])
+
+  if (status === 'checkin') {
     return (
       <h3>Loading...</h3>
     )
   }
 
-  useEffect(() => {
-    checkAuthToken()
-  }, [])
 
   return (
     <Routes>

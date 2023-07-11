@@ -1,5 +1,5 @@
 import { addHours, differenceInSeconds } from "date-fns";
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Modal from "react-modal";
 
 import DatePicker from "react-datepicker";
@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Swal from 'sweetalert2'
 import 'sweetalert2/dist/sweetalert2'
 import { useUiStore, useCalendarStore } from "../../hooks";
+import { getEnvVariables } from "../../helpers";
 
 const customStyles = {
   content: {
@@ -20,7 +21,9 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement("#root");
+if (getEnvVariables().VITE_MODE !== 'test') {
+  Modal.setAppElement("#root");
+}
 
 export const CalendarModal = () => {
 
